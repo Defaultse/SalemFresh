@@ -21,7 +21,8 @@ Customer
   
 Shop Owner
 - As a shop owner, I want to place my shop in the website.
-- As a shop owner, I want to post list of products by categories to the shop page.
+- As a shop owner, I want to post list of products by categories in my shop's page.
+- As a shop owner, I want to register my delivery guy into the website.
 
 
 

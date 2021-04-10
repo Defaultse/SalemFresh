@@ -10,13 +10,19 @@ Selem fresh is website where a person can subscribe to products of the particula
 User Stories
 
 Customer
-- As a customer, I want to choose a shop.
+- As a customer, I want to find a shop.
 - As a customer, I want to see list of products of this shop.
    1. I want to see details of a product.
    2. I want to subscribe to a product.
 - As a customer, I want to see my subscriptions.
    - I want to change interval of delivery of a product.
+   - I want to see/leave a feedback.
    - I want to unsubscribe from a product.
+  
+Shop Owner
+- As a shop owner, I want to place my shop in the website.
+- As a shop owner, I want to post list of products by categories to the shop page.
+
 
 
 ![Снимок экрана 2021-04-10 223635](https://user-images.githubusercontent.com/45491587/114277489-3eb2da00-9a4d-11eb-920f-9716bb422af7.png)

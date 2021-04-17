@@ -1,6 +1,7 @@
 from django.contrib import admin
-from core.models import *
-
+from core.models.feedbacks import *
+from core.models.profiles import *
+from core.models.shop import *
 
 admin.site.register(Customer)
 admin.site.register(ShopOwner)

@@ -37,8 +37,8 @@ class ProductManager(models.Manager):
 
 class Product(models.Model):
     name = models.CharField(max_length=50, null=True, blank=True)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
-    shop = models.ForeignKey("core.Shop", on_delete=models.CASCADE, null=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, related_name='products')
+    shop = models.ForeignKey("core.Shop", on_delete=models.CASCADE, null=True, related_name='products')
     price = models.FloatField(max_length=50, null=True, blank=True)
     description = models.TextField(max_length=255, null=True, blank=True)
 

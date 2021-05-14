@@ -10,13 +10,16 @@ Customer:
 - Subscription/Unsubscription to that products
 - Changing subscription interval
 - Listing all current subscriptions
-- Leaving feedbacks to shop and products
+- Leaving feedbacks to shop, products and deliverer
+
 
 Manager:
 - Registration of deliverers to the system
 - Access to admin page
 
 Deliverer:
-- Get list of subscriptions and execute them
-- Get address of a costumer from subcription info
+- Login
+- Get list of orders
+- Get address of a costumer of order
+- Change status of order after successful delivery
 

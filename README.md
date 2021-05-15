@@ -17,6 +17,7 @@ Customer:
 Manager:
 - Registration of deliverers to the system
 - Access to admin page
+- Assign Tasks to Deliverers
 
 Deliverer:
 - Login

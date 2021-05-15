@@ -1,3 +1,4 @@
+![project](https://user-images.githubusercontent.com/45491587/118348283-0a11d100-b56b-11eb-8ec1-38febec8a0e6.png)
 
 # SalemFresh
 

@@ -1,3 +1,4 @@
+
 # SalemFresh
 
 Whoever makes purchases for any product once a week or a month is most often ready to subscribe. A person spends less time shopping and a trip to the store.

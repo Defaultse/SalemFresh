@@ -12,20 +12,16 @@ CITIES = [
     ]
 
 
-
-USER = 1
-CUSTOMER = 2
-SHOPOWNER = 3
-DELIVERYGUY = 4
-ADMIN = 5
+CUSTOMER = 1
+SHOP_MANAGER = 2
+DELIVERYGUY = 3
+ADMIN = 4
 USER_ROLES = [
-     (USER, 'user'),
      (CUSTOMER, 'customer'),
-     (SHOPOWNER, 'shop owner'),
+     (SHOP_MANAGER, 'shop manager'),
      (DELIVERYGUY, 'delivery guy'),
      (ADMIN, 'admin')
 ]
-
 
 SUBSCRIPTION_INTERVAL = [
     (7, 'every week'),

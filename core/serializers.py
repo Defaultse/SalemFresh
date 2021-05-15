@@ -1,50 +1,55 @@
 from rest_framework import serializers
-from auth_.models import User
-from auth_.serializers import UserSerializer
 from core.models import *
 
 
-class CustomerSerializer(UserSerializer):
-    class Meta(UserSerializer.Meta):
-        model = Customer
-        fields = '__all__'
-
-
-class ShopOwnerSerializer(UserSerializer):
-    class Meta(UserSerializer.Meta):
-        model = ShopOwner
-        fields = '__all__'
-
-
-class DeliveryGuySerializer(UserSerializer):
-    class Meta(UserSerializer.Meta):
-        model = DeliveryGuy
-        fields = '__all__'
-
-
-class ShopSerializer(serializers.Serializer):
-    name = serializers.CharField
-    location = serializers.CharField
-    description = serializers.CharField
-
-    def create(self, valideted_data):
-        Shop.objects.create(**valideted_data)
-
-    def update(self, instance, validated_data):
-        pass
-
-
 class ProductSerializer(serializers.ModelSerializer):
-    shop = ShopSerializer()
-
     class Meta:
-        model = Shop
+        model = Product
         fields = '__all__'
 
 
 class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = '__all__'
+
+
+class CategoryProductsSerializer(serializers.ModelSerializer):
+    name = serializers.CharField(read_only=True)
     products = ProductSerializer(many=True)
 
     class Meta:
         model = Category
         fields = ('id', 'name', 'products')
+
+
+class ShopFeedbackSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ShopFeedback
+        fields = '__all__'
+
+
+class ProductFeedbackSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProductFeedback
+        fields = '__all__'
+
+
+class OrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = '__all__'
+
+
+class DelivererAndOrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DelivererAndOrder
+        fields = '__all__'
+
+
+
+    # class ProductFullSerializer(ProductSerializer):
+#     category = CategorySerializer()
+#
+#     class Meta(ProductSerializer.Meta):
+#         fields = ProductSerializer.Meta.fields + ('category',)

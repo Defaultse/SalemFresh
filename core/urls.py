@@ -1,21 +1,25 @@
-from django.urls import path
+from django.urls import path, include
 from rest_framework import routers
-from core.views import *
+from core.views.feedbacks_view import *
+from core.views.products_view import *
+from core.views.order_view import *
 
-# router = routers.SimpleRouter()
-# router.register('shop', ShopViewSet, basename='main')
+router = routers.SimpleRouter()
+router.register('products', ProductViewSet, basename='products')
+router.register('categories', CategoryViewSet, basename='categories')
+router.register('orders', OrderViewSet, basename='orders')
+router.register('set-order-deliverer', DelivererAndOrderViewSet, basename='set-order-deliverer')
 
 urlpatterns = [
-    path('shops/', ShopApiView.as_view()),
-    path('shops/<int:pk>/', ShopApiView.as_view()),
+    path('category-products/<int:pk>/', CategoryViewSet.as_view({'get': 'retrieve'})),
 
-    path('product/', ProductApiView.as_view()),
-    path('product/<int:pk>/', ProductApiView.as_view()),
+    path('shopfeedbacks/', ShopFeedbackViewSet.as_view({'get': 'list'})),
+    path('shopfeedbacks/create/', ShopFeedbackViewSet.as_view({'post': 'create'})),
 
-    path('category/<int:pk>/', CategoryApiView.as_view()),
+    path('productfeedbacks/<int:pk>/', ProductFeedbackViewSet.as_view({'get': 'retrieve'})),
+    path('productfeedbacks/create/', ProductFeedbackViewSet.as_view({'post': 'create'})),
 
-    path('customer/<int:pk>/', CustomerApiView.as_view()),
-
+    path("", include(router.urls)),
 ]
 
-# urlpatterns += router.urls
+urlpatterns += router.urls

@@ -6,7 +6,7 @@ from core.models.orders import Order, DelivererAndOrder
 @receiver(post_save, sender=Order)
 def user_created(sender, instance, created, **kwargs):
     if created:
-        DelivererandOrder.objects.create(order=instance)
+        DelivererAndOrder.objects.create(order=instance)
 
 
 @receiver(post_save, sender=Order)

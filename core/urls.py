@@ -8,10 +8,10 @@ router = routers.SimpleRouter()
 router.register('products', ProductViewSet, basename='products')
 router.register('categories', CategoryViewSet, basename='categories')
 router.register('orders', OrderViewSet, basename='orders')
-router.register('set-order-deliverer', DelivererAndOrderViewSet, basename='set-order-deliverer')
+router.register('deliverer-tasks', DelivererAndOrderViewSet, basename='set-order-deliverer')
 
 urlpatterns = [
-    path('category-products/<int:pk>/', CategoryViewSet.as_view({'get': 'retrieve'})),
+    path('category-products/<int:pk>/', CategoryProductsApi.as_view()),
 
     path('shopfeedbacks/', ShopFeedbackViewSet.as_view({'get': 'list'})),
     path('shopfeedbacks/create/', ShopFeedbackViewSet.as_view({'post': 'create'})),

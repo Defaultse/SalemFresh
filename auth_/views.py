@@ -1,3 +1,4 @@
+import logging
 from django.http import Http404
 from rest_framework import status, viewsets
 from rest_framework.decorators import api_view
@@ -6,8 +7,10 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
-from auth_.permissions import IsCustomer
+from auth_.permissions import IsCustomer, IsDeliverer, IsManager
 from auth_.serializers import *
+
+logger = logging.getLogger(__name__)
 
 
 class CustomerApi(APIView):
@@ -20,14 +23,10 @@ class CustomerApi(APIView):
         except Customer.DoesNotExist:
             raise Http404
 
-    def get(self, request):
-        customers = Customer.objects.all()
-        serializer = self.serializer_class(customers, many=True)
-        return Response({"customers": serializer.data})
-
     def put(self, request, pk):
         customer = self.get_object(pk)
         serializer = self.serializer_class(instance=customer, data=request.data)
+        logger.info(f'Customer info modified: {customer}')                           # logging
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
@@ -35,7 +34,7 @@ class CustomerApi(APIView):
 
 
 class DelivererApi(APIView):
-    permission_classes = (AllowAny,)
+    permission_classes = (IsDeliverer,)
     serializer_class = DelivererSerializer
 
     def get_object(self, pk):
@@ -44,11 +43,6 @@ class DelivererApi(APIView):
         except Deliverer.DoesNotExist:
             raise Http404
 
-    def get(self, request):
-        deliverer = Deliverer.objects.all()
-        serializer = self.serializer_class(deliverer, many=True)
-        return Response({"deliverers": serializer.data})
-
     def put(self, request, pk):
         deliverer = self.get_object(pk)
         serializer = self.serializer_class(instance=deliverer, data=request.data)
@@ -56,12 +50,6 @@ class DelivererApi(APIView):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors)
-
-    def post(self, request):
-        serializer = self.serializer_class(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 class ProfileViewSet(viewsets.ModelViewSet):
@@ -75,6 +63,25 @@ def customer_registration(request):
     serializer = CustomerSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
     serializer.save()
+    logger.info(f'Customer registered: {serializer.data}')                         # logging
+    return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
+@api_view(['POST'])
+def deliverer_registration(request):
+    serializer = DelivererSerializer(data=request.data)
+    serializer.is_valid(raise_exception=True)
+    serializer.save()
+    logger.info(f'Deliverer registered: {serializer.data}')                         # logging
+    return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
+@api_view(['POST'])
+def manager_registration(request):
+    serializer = ManagerSerializer(data=request.data)
+    serializer.is_valid(raise_exception=True)
+    serializer.save()
+    logger.info(f'Manager registered: {serializer.data}')                         # logging
     return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 

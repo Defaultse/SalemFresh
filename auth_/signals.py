@@ -9,7 +9,7 @@ def user_created(sender, instance, created, **kwargs):
         Profile.objects.create(user=instance)
 
 
-@receiver(post_save, sender=CustomUser)
+@receiver(post_save, sender=Customer)
 def update_profile(sender, instance, created, **kwargs):
     if not created:
         instance.profile.save()

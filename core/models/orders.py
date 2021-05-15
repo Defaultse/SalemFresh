@@ -3,11 +3,18 @@ from utils.constants import *
 from django.utils import timezone
 
 
+class OrderManager(models.Manager):
+    def get_customer_order(self, customer_id):
+        return self.get(customer_id=customer_id)
+
+
 class Order(models.Model):
     customer = models.ForeignKey("auth_.Customer", on_delete=models.CASCADE, null=True)
     products = models.ManyToManyField("core.Product")
     ordered_at = models.DateField(auto_now_add=True)
     executed = models.BooleanField(default=False)
+
+    objects = OrderManager()
 
     class Meta:
         verbose_name_plural = 'Orders'

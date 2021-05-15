@@ -89,13 +89,6 @@ class Deliverer(CustomUser, PermissionsMixin):
         verbose_name = 'Deliverer'
 
 
-class Manager(CustomUser, PermissionsMixin):
-
-    class Meta:
-        verbose_name_plural = 'Managers'
-        verbose_name = 'Manager'
-
-
 
 
 

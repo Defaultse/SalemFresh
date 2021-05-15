@@ -18,6 +18,9 @@ urlpatterns = [
 
     path('deliverer/', DelivererApi.as_view()),
     path('deliverer/<int:pk>/', views.DelivererApi.as_view()),
+    path('deliverer_registration/', views.deliverer_registration),
+
+    path('manager_registration/', views.manager_registration),
 
 ]
 

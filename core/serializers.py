@@ -42,14 +42,15 @@ class OrderSerializer(serializers.ModelSerializer):
 
 
 class DelivererAndOrderSerializer(serializers.ModelSerializer):
+    order = OrderSerializer(read_only=True)
+
     class Meta:
         model = DelivererAndOrder
-        fields = '__all__'
+        fields = 'order'
 
 
+class ProductFullSerializer(ProductSerializer):
+    category = CategorySerializer()
 
-    # class ProductFullSerializer(ProductSerializer):
-#     category = CategorySerializer()
-#
-#     class Meta(ProductSerializer.Meta):
-#         fields = ProductSerializer.Meta.fields + ('category',)
+    class Meta(ProductSerializer.Meta):
+        fields = ProductSerializer.Meta.fields + 'category'

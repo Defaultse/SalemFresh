@@ -1,0 +1,4 @@
+INFO -- 2021-05-15 06:50:10,181: Author object created, ID: <auth_.views.CustomerApi object at 0x000002956263A700>
+INFO -- 2021-05-15 06:50:31,305: Author object created, ID: <auth_.views.CustomerApi object at 0x00000295620A3E50>
+INFO -- 2021-05-15 06:53:52,922: Customer info modified: customer4@gmail.com
+INFO -- 2021-05-15 07:16:34,687: Deliverer registered: {'email': 'deliverer@gmail.com', 'first_name': 'User', 'last_name': 'User', 'completed_orders_count': None}

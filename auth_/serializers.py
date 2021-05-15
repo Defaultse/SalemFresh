@@ -51,6 +51,27 @@ class CustomUserSerializer(serializers.Serializer):
         pass
 
 
+class ManagerSerializer(CustomUserSerializer):
+    def create(self, validated_data):
+        validated_data['role'] = SHOP_MANAGER
+        validated_data['is_superuser'] = True
+        if validated_data['email'] is None:
+            raise TypeError('Users must have an email address.')
+        manager = CustomUser(**validated_data)
+        manager.set_password(validated_data['password'])
+        manager.save()
+        return manager
+
+    def update(self, instance, validated_data):
+        instance.email = validated_data.get('email', instance.email)
+        instance.first_name = validated_data.get('first_name', instance.first_name)
+        instance.last_name = validated_data.get('last_name', instance.last_name)
+        instance.role = validated_data.get('role', instance.role)
+        # instance.password = validated_data.get('password', instance.password)
+        instance.save()
+        return instance
+
+
 class CustomerSerializer(CustomUserSerializer):
     location = serializers.CharField
     address = serializers.CharField
@@ -71,7 +92,7 @@ class CustomerSerializer(CustomUserSerializer):
         instance.location = validated_data.get('location', instance.location)
         instance.address = validated_data.get('address', instance.address)
         instance.role = validated_data.get('role', instance.role)
-        instance.password = validated_data.get('password', instance.password)
+        # instance.password = validated_data.get('password', instance.password)
         instance.save()
         return instance
 
@@ -94,7 +115,7 @@ class DelivererSerializer(CustomUserSerializer):
         instance.last_name = validated_data.get('last_name', instance.last_name)
         instance.completed_orders_count = validated_data.get('completed_orders_count', instance.completed_orders_count)
         instance.role = validated_data.get('role', instance.role)
-        instance.password = validated_data.get('password', instance.password)
+        # instance.password = validated_data.get('password', instance.password)
         instance.save()
         return instance
 

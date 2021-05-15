@@ -46,7 +46,7 @@ class DelivererAndOrderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = DelivererAndOrder
-        fields = 'order'
+        fields = '__all__'
 
 
 class ProductFullSerializer(ProductSerializer):

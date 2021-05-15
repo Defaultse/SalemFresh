@@ -25,6 +25,9 @@ class DelivererAndOrderManager(models.Manager):
     def get_by_order(self, order_id):
         return self.get(order_id=order_id)
 
+    def get_by_deliverer(self, deliverer_id):
+        return self.get(deliverer_id=deliverer_id)
+
 
 class DelivererAndOrder(models.Model):
     order = models.OneToOneField(Order, on_delete=models.CASCADE)

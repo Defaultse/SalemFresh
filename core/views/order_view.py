@@ -30,11 +30,12 @@ class OrderViewSet(viewsets.ViewSet):
         logger.info(f'Order created: {serializer.data}')                              # logging
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
+    # user confirmation
     def partial_update(self, request, *args, **kwargs):
-        pass
-    #     instance = Order.objects.get_customer_order(kwargs.get('pk'))
-    #     serializer = Order(instance)
-    #     return Response(serializer.data)
+        instance = Order.objects.get_customer_order(kwargs.get('pk'))
+        serializer = OrderSerializer(instance, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        return Response(serializer.data)
 
     def get_permissions(self):
         if self.action in ['create', 'retrieve', 'partial_update']:
@@ -46,6 +47,6 @@ class OrderViewSet(viewsets.ViewSet):
 
 class DelivererAndOrderViewSet(viewsets.ViewSet):
     def retrieve(self, request, pk=None):
-        pass
-        # orders = DelivererAndOrder.objects.filter(deliverer_id=pk)
-        # return Response(orders)
+        orders = DelivererAndOrder.objects.get_by_deliverer(pk)
+        serializer = DelivererAndOrderSerializer(orders)
+        return Response(serializer.data)

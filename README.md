@@ -15,7 +15,7 @@ Customer:
 
 
 Manager:
-- Registration of deliverers to the system
+- All possible CRUD to products
 - Access to admin page
 - Assign Tasks to Deliverers
 

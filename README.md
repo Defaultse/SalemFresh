@@ -23,6 +23,4 @@ Manager:
 Deliverer:
 - Login
 - Get list of tasks
-- Get address of a costumer of order
-- Change status of order after successful delivery
 

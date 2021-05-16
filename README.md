@@ -13,7 +13,7 @@ Customer:
 - Changing subscription interval
 - Listing all current subscriptions
 - Leaving feedbacks to shop, products and deliverer
-
+- Change status of order after successful delivery
 
 Manager:
 - All possible CRUD to products
@@ -22,7 +22,7 @@ Manager:
 
 Deliverer:
 - Login
-- Get list of orders
+- Get list of tasks
 - Get address of a costumer of order
 - Change status of order after successful delivery
 

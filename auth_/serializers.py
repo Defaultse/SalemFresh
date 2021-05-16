@@ -75,6 +75,7 @@ class ManagerSerializer(CustomUserSerializer):
 class CustomerSerializer(CustomUserSerializer):
     location = serializers.CharField
     address = serializers.CharField
+    is_superuser = None
 
     def create(self, validated_data):
         validated_data['role'] = CUSTOMER
@@ -98,6 +99,7 @@ class CustomerSerializer(CustomUserSerializer):
 
 
 class DelivererSerializer(CustomUserSerializer):
+    is_superuser = None
     completed_orders_count = serializers.IntegerField(allow_null=True, required=False)
 
     def create(self, validated_data):

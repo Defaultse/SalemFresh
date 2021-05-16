@@ -2,3 +2,25 @@ INFO -- 2021-05-15 06:50:10,181: Author object created, ID: <auth_.views.Custome
 INFO -- 2021-05-15 06:50:31,305: Author object created, ID: <auth_.views.CustomerApi object at 0x00000295620A3E50>
 INFO -- 2021-05-15 06:53:52,922: Customer info modified: customer4@gmail.com
 INFO -- 2021-05-15 07:16:34,687: Deliverer registered: {'email': 'deliverer@gmail.com', 'first_name': 'User', 'last_name': 'User', 'completed_orders_count': None}
+INFO -- 2021-05-15 11:27:21,004: Order created: {'id': 2, 'ordered_at': '2021-05-15', 'executed': False, 'customer': 4, 'products': [2, 3]}
+INFO -- 2021-05-15 23:08:55,340: Order created: {'id': 3, 'ordered_at': '2021-05-15', 'executed': False, 'customer': 2, 'products': [1, 3]}
+INFO -- 2021-05-16 11:50:14,679: Order executed: {'id': 2, 'ordered_at': '2021-05-15', 'executed': False, 'customer': 4, 'products': [2, 3]}
+INFO -- 2021-05-16 11:52:54,442: Order executed: {'id': 2, 'ordered_at': '2021-05-15', 'executed': False, 'customer': 4, 'products': [2, 3]}
+INFO -- 2021-05-16 11:53:02,520: Order executed: {'id': 2, 'ordered_at': '2021-05-15', 'executed': False, 'customer': 4, 'products': [2, 3]}
+INFO -- 2021-05-16 11:58:24,502: Order executed: {'id': 2, 'ordered_at': '2021-05-15', 'executed': False, 'customer': 4, 'products': [2, 3]}
+INFO -- 2021-05-16 11:58:53,033: Order executed: {'id': 2, 'ordered_at': '2021-05-15', 'executed': False, 'customer': 4, 'products': [2, 3]}
+INFO -- 2021-05-16 12:00:44,758: Order executed: {'id': 2, 'ordered_at': '2021-05-15', 'executed': True, 'customer': 4, 'products': [2, 3]}
+INFO -- 2021-05-16 12:06:36,846: Order executed: {'id': 2, 'ordered_at': '2021-05-15', 'executed': False, 'customer': 4, 'products': [2, 3]}
+INFO -- 2021-05-16 12:07:17,504: Order executed: {'id': 2, 'ordered_at': '2021-05-15', 'executed': True, 'customer': 4, 'products': [2, 3]}
+INFO -- 2021-05-16 12:09:09,694: Order executed: {'id': 2, 'ordered_at': '2021-05-15', 'executed': False, 'customer': 4, 'products': [2, 3]}
+INFO -- 2021-05-16 12:09:24,695: Order executed: {'id': 2, 'ordered_at': '2021-05-15', 'executed': True, 'customer': 4, 'products': [2, 3]}
+INFO -- 2021-05-16 12:10:51,994: Order executed: {'id': 2, 'ordered_at': '2021-05-15', 'executed': True, 'customer': 4, 'products': [2, 3]}
+INFO -- 2021-05-16 12:22:10,155: Order created: {'id': 5, 'ordered_at': '2021-05-16', 'executed': False, 'customer': 2, 'products': [1, 3]}
+INFO -- 2021-05-16 13:00:27,487: Order executed: {'id': 3, 'ordered_at': '2021-05-15', 'executed': False, 'customer': 2, 'products': [1, 3]}
+INFO -- 2021-05-16 13:01:54,009: Order created: {'id': 9, 'ordered_at': '2021-05-16', 'executed': False, 'customer': None, 'products': [1, 3]}
+INFO -- 2021-05-16 13:04:18,557: Order created: {'id': 10, 'ordered_at': '2021-05-16', 'executed': False, 'customer': 4, 'products': [1, 3]}
+INFO -- 2021-05-16 13:08:37,196: Order executed: {'id': 3, 'ordered_at': '2021-05-15', 'executed': True, 'customer': 2, 'products': [1, 3]}
+INFO -- 2021-05-16 13:16:41,326: Order executed: {'id': 3, 'ordered_at': '2021-05-15', 'executed': True, 'customer': 2, 'products': [1, 3]}
+INFO -- 2021-05-16 13:16:55,392: Order executed: {'id': 3, 'ordered_at': '2021-05-15', 'executed': False, 'customer': 2, 'products': [1, 3]}
+INFO -- 2021-05-16 13:18:46,439: Order created: {'id': 18, 'ordered_at': '2021-05-16', 'executed': False, 'customer': 4, 'products': [1, 3]}
+INFO -- 2021-05-16 13:19:07,431: Order executed: {'id': 18, 'ordered_at': '2021-05-16', 'executed': True, 'customer': 4, 'products': [1, 3]}

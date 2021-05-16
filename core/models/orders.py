@@ -4,8 +4,8 @@ from django.utils import timezone
 
 
 class OrderManager(models.Manager):
-    def get_customer_order(self, customer_id):
-        return self.get(customer_id=customer_id)
+    def get_customer_orders(self, customer_id):
+        return self.filter(customer_id=customer_id)
 
 
 class Order(models.Model):
@@ -20,13 +20,21 @@ class Order(models.Model):
         verbose_name_plural = 'Orders'
         verbose_name = 'Order'
 
+    def __str__(self):
+        if self.executed:
+            return 'ORDER ID: {} - executed'.format(self.id)
+        else:
+            return 'ORDER ID: {} - not executed. Ordered at {}'.format(self.id, self.ordered_at)
+
 
 class DelivererAndOrderManager(models.Manager):
     def get_by_order(self, order_id):
         return self.get(order_id=order_id)
 
     def get_by_deliverer(self, deliverer_id):
-        return self.get(deliverer_id=deliverer_id)
+        deliverers = DelivererAndOrder.objects.filter(deliverer_id=deliverer_id).values_list('order', flat=True)
+        orders = Order.objects.filter(id__in=deliverers)
+        return orders
 
 
 class DelivererAndOrder(models.Model):
@@ -38,3 +46,6 @@ class DelivererAndOrder(models.Model):
     class Meta:
         verbose_name_plural = 'Orders and Deliverers'
         verbose_name = 'Order and Deliverer'
+
+    def __str__(self):
+        return '{}. Deliverer: {}'.format(str(self.order), str(self.deliverer))

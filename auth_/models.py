@@ -44,7 +44,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(_('active'), default=True)
     is_superuser = models.BooleanField(_('is_superuser'), default=False)
     is_staff = models.BooleanField(_('is_staff'), default=False)
-    role = models.SmallIntegerField(choices=USER_ROLES,)
+    role = models.SmallIntegerField(choices=USER_ROLES, )
 
     objects = CustomUserManager()
 
@@ -63,7 +63,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
 class Profile(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    avatar = models.ImageField(upload_to='avatars', null=True, blank=True, validators=[validate_size, validate_extension])
+    avatar = models.ImageField(upload_to='avatars', null=True, blank=True,
+                               validators=[validate_size, validate_extension])
     birth_date = models.DateField(blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
 
@@ -80,15 +81,19 @@ class Customer(CustomUser, PermissionsMixin):
         verbose_name_plural = 'Customers'
         verbose_name = 'Customer'
 
+    def __str__(self):
+        return 'ID: {}, {}'.format(self.id ,self.email)
+
 
 class Deliverer(CustomUser, PermissionsMixin):
-    completed_orders_count = models.IntegerField(blank=True, null=True)
+    completed_orders_count = models.IntegerField(default=0)
 
     class Meta:
         verbose_name_plural = 'Deliverers'
         verbose_name = 'Deliverer'
 
+    def inc_completed_orders(self):
+        return Deliverer.objects.filter(profile=self).count()
 
-
-
-
+    def __str__(self):
+        return '{}'.format(self.email)

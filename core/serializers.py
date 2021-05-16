@@ -42,11 +42,23 @@ class OrderSerializer(serializers.ModelSerializer):
 
 
 class DelivererAndOrderSerializer(serializers.ModelSerializer):
-    order = OrderSerializer(read_only=True)
-
     class Meta:
         model = DelivererAndOrder
         fields = '__all__'
+#
+#
+# class DelivererAndOrderSerializer(serializers.Serializer):
+#     email = serializers.EmailField()
+#     first_name = serializers.CharField()
+#     last_name = serializers.CharField()
+#     role = models.SmallIntegerField()
+#     password = serializers.CharField(write_only=True)
+#
+#     def create(self, validated_data):
+#         pass
+#
+#     def update(self, instance, validated_data):
+#         pass
 
 
 class ProductFullSerializer(ProductSerializer):

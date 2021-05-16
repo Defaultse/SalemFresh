@@ -8,19 +8,19 @@ In turn, the store knows in advance the exact demand for any products.
 Customer:
 - Registration/Login
 - Getting list of products by categories
-- Getting product by search
-- Subscription/Unsubscription to that products
-- Changing subscription interval
-- Listing all current subscriptions
-- Leaving feedbacks to shop, products and deliverer
+- Get detailed info about chosen order
+- Ordering chosen list of products
+- Listing all his/her orders
+- Leaving feedbacks to shop, products
 - Change status of order after successful delivery
 
 Manager:
 - All possible CRUD to products
 - Access to admin page
-- Assign Tasks to Deliverers
+- Registeration of deliverers
+- Assign orders to Deliverers
 
 Deliverer:
 - Login
-- Get list of tasks
+- Get list of orders to perform
 

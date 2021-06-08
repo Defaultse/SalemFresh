@@ -24,3 +24,4 @@ Deliverer:
 - Login
 - Get list of orders to perform
 
+API collection: https://www.getpostman.com/collections/0712b69464c121d0bde6

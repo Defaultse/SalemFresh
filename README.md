@@ -25,3 +25,5 @@ Deliverer:
 - Get list of orders to perform
 
 API collection: https://www.getpostman.com/collections/0712b69464c121d0bde6
+
+![image](https://user-images.githubusercontent.com/45491587/121285023-83e57200-c8ff-11eb-9171-23348ce1cedd.png)
